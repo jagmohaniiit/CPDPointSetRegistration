@@ -1,0 +1,20 @@
+
+%Load Points
+sourcePoints=importdata(char('\\gvk-imt-ts-01.win.ntnu.no\filestorage\nbl-users\Jag_Mohan\IJCB2021-3DMorphing\SOTAComparisonCodeBase\PyCPDCode\bunny_source.txt'));
+targetPoints=importdata(char('\\gvk-imt-ts-01.win.ntnu.no\filestorage\nbl-users\Jag_Mohan\IJCB2021-3DMorphing\SOTAComparisonCodeBase\PyCPDCode\bunny_target.txt'));
+
+%Compute Rigid Registration
+transformedTarget=RigidRegistration(sourcePoints,targetPoints,0.5);
+ptCloud1=pointCloudDSFrom3DPoints(sourcePoints);
+lower1 = min([ptCloud1.XLimits  ptCloud1.XLimits]);
+upper1 = min([ptCloud1.XLimits  ptCloud1.XLimits]);
+xlimits = [lower1 upper1];
+    ylimits = [lower1 upper1];
+    zlimits =
+    
+    player = pcplayer(xlimits,ylimits,zlimits);
+
+    xlabel(player.Axes,'X (m)');
+    ylabel(player.Axes,'Y (m)');
+    zlabel(player.Axes,'Z (m)');
+    

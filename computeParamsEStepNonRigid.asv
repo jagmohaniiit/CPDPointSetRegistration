@@ -1,0 +1,31 @@
+function [pmn]=computeParamsEStepNonRigid(X,Y,R,t,s,sigma2,M,N,D,w,W,G)
+
+pmn=zeros(M,N);
+
+fixedTermDenominator=power((2.0*pi*sigma2),D/2.0)*(w/(1-w))*(M/N);
+
+for m=1:M
+    for n=1:N
+        for m=
+        yscaled=(Y(m,:)+G(m,:)*W);
+        term1=sum(X(n,:)-yscaled(:));
+        term12=sum(term1.*term1);
+        numeratorTerm=(-1.0/(2.0*sigma2))*(term12);
+        
+        
+        
+        denominatorTerm=
+        
+        pmn(m,n)=exp(numeratorTerm);
+    end
+end
+
+sumpmn=sum(sum(pmn));
+denominator=sumpmn+fixedTerm;
+for m=1:M
+    for n=1:N
+        pmn(m,n)=pmn(m,n)/denominator;
+        
+    end
+end
+

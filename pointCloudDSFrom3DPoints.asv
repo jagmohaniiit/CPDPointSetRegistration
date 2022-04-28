@@ -1,0 +1,4 @@
+function [ptCloudDS]=pointCloudDSFrom3DPoints(inputPoints)
+ptCloudDS=pcread('teapot.ply');
+ptCloudDS.Location=inputPoints;
+ptCloudDS.Count=
